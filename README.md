@@ -16,3 +16,12 @@ codeAssist provides a refined collection of inspirational programmer quotes (tha
 * Coding best practices
 * Use existing public data
 * Migration strategy
+
+## Getting Started
+Run `npm install` to add the following dependencies: `body-parser`, `cookie-parser`, `debug`, `express`, `hbs`, `mocha`, `morgan`, `mysql`, `sequelize`, `serve-favicon`.  
+
+### Running Tests
+`npm test`  
+
+### Starting the Server
+`npm start`  
