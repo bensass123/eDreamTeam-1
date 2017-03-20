@@ -21,6 +21,20 @@ Initial structure created using `express-generator` modified to better fit the M
 * `test` for mocha test scripts
 * `views` contains all handlebars templates
 
+## Project Timeline
+### Saturday 3/18
+    Brainstorm ideas, initial wireframe and notes, next steps: research & setup
+### Tuesday 3/21
+    Finalize architecture, pseudocode & assign features
+### Thursday 3/23
+    Feature coding, initial concerns/roadblocks
+### Saturday 3/25
+    Feature coding, (testing?)
+### Tuesday 3/28
+    User testing, final bug fixes, presentation preparation (60 minutes)
+### Thursday 3/30
+    Project presentation and demo (10 minutes)
+
 ## Project Requirements
 * ~~Node.js~~
 * ~~Express web server~~
