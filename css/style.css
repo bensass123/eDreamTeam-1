@@ -1,0 +1,61 @@
+/*BORDER BOX*/
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+	/* BACKGROUND COLORS/GRADIENTS */
+	background-color: black;
+    background: -webkit-linear-gradient(-90deg, blue, cyan); /* Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(-90deg, blue, cyan); /* Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(-90deg, blue, cyan); /* Firefox 3.6 to 15 */
+    background: linear-gradient(-90deg, blue, cyan); /* Standard syntax */
+}
+
+img {
+	max-width: 100%;  /*For scalable images*/ 
+}
+
+.wrapper {
+	width: 1080px;
+	height: 1080px;
+	margin: auto;
+	background-color: white;
+	/*background-color: rgba(255, 255, 255, 0.5);*/
+}
+
+header{
+	text-align: center;
+	margin: auto;
+}
+
+#logo {
+	max-width: 50%; 
+	padding-top: 12px;
+	padding-bottom: 15px;
+
+}
+
+.tileContainer{
+
+}
+
+.tile {
+	position: relative;
+	width: 1080px;
+	height: 325px;
+	border: solid 1px;
+	cursor: pointer;
+}
+
+.tileText{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Basing off of parent object */
+    color: white;
+    font-weight: bold;
+    font-size: 64px;
+    text-shadow: 2px 2px 4px #000000;
+    font-family: 'Roboto', sans-serif;
+}

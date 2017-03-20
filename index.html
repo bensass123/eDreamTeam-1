@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./img/favicon/favicon.ico" />
+    <!-- Reset CSS -->
+    <link rel="stylesheet" href="./css/reset.css" type="text/css" />
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="./css/style.css" type="text/css" media="screen, projection" />
+    <!-- Responsive / Media Query CSS -->
+    <!-- <link rel="stylesheet" href="./css/responsive.css" type="text/css" media="screen, projection" /> -->
+    <!-- Roboto Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <title>&lt;CodeFriend&gt;</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header><img src="./img/logo/codefriend-logo.png" id="logo"></header>
+        <div class="tileContainer">
+            <div class="tile" name="inspireMe">
+                <img src="./img/tiles/inspireMe1.jpeg">
+                <p class="tileText" id="inspireText">INSPIRE ME</p>
+            </div>
+            <div class="tile" name="humorMe">
+                <img src="./img/tiles/humorMe1.jpeg">
+                <p class="tileText" id="humorText">HUMOR ME</p>
+            </div>
+            <div class="tile" name="challengeMe"><img src="./img/tiles/challengeMe.jpeg">
+                <p class="tileText" id="challengeText">CHALLENGE ME</p>
+            </div>
+        </div>
+        <footer></footer>
+    </div>
+    <script type="text/javascript">
+    $(".tile").on("click", function(event) {
+        $(this).children(".tileText").text("You clicked me!");
+    });
+    </script>
+</body>
+
+</html>
