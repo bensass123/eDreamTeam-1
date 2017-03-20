@@ -12,7 +12,7 @@ Initial structure created using `express-generator` modified to better fit the M
   * `index.js` handles routing for `/` and pulls in additional routes, handled in their own files. For example, `users.js` handles routes for `/users`
 * `migrations` to be used for `sequelize-cli` migrations
 * `models`
-  * `db`
+  * `db` includes shema.sql which defines the database
     * `data` contains multiple JSON files containing starter datasets for app
   * `index.js` which manages requests and pulls in individual files for each database model and its basic functions
 * `public` contains all statically served, publically available files
@@ -25,7 +25,7 @@ Initial structure created using `express-generator` modified to better fit the M
 ### Saturday 3/18
     Brainstorm ideas, initial wireframe and notes, next steps: research & setup
 ### Tuesday 3/21
-    Finalize architecture, pseudocode & assign features
+    Finalize architecture, feature set, and prototype; pseudocode full app, determine feature coding responsibilities
 ### Thursday 3/23
     Feature coding, initial concerns/roadblocks
 ### Saturday 3/25
@@ -38,18 +38,20 @@ Initial structure created using `express-generator` modified to better fit the M
 ## Project Requirements
 * ~~Node.js~~
 * ~~Express web server~~
-* MySQL
-* Sequelize ORM
-* Handlebars
-* Authentication
+* MySQL - clearDB on Heroku
+* Sequelize ORM - installed/setup
+* Handlebars - setup
+* Authentication - implementation investigation (Firebase/Heroku/From Scratch?)
 * GET and POST routes
-* Heroku deployment
-* New library/package/technology
-* Polished UI
+  * GET content
+  * POST ? (user profile, new content)
+* Heroku deployment - project created, deployment pipeline?
+* New library/package/technology - Mocha.js for testing, others?
+* Polished UI - prototyping
 * ~~MVC pattern~~
-* Coding best practices
+* Coding best practices - of course!
 * ~~Use existing public data~~
-* Migration strategy
+* Migration strategy - researching solutions (sequelize-cli?)
 
 ### Whiteboard
 * Social Media
