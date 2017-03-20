@@ -1,6 +1,6 @@
 # eDreamTeam - Group Project 2 - codeFriend
 ## Project Notes
-codeFriend (working title) will have 3 initial features; **inspirational quotes**, **humorous memes**, **coding challenges**. User will have the option to select a category and infinite scroll through all available content. User will be able to create an account, update a profile, and not be served duplicate content (unless approved by user setting).
+codeFriend will have 3 initial features; **inspirational quotes**, **humorous memes**, **coding challenges**. User will have the option to select a category and infinite scroll through all available content. User will be able to create an account, update a profile, and not be served duplicate content (unless approved by user setting).
 
 ### App Architecture
 Initial structure created using `express-generator` modified to better fit the MVC pattern, incorporate `mocha` tests, and `sequelize-cli` for ORM and migration support. 
@@ -25,8 +25,8 @@ Initial structure created using `express-generator` modified to better fit the M
 * ~~Node.js~~
 * ~~Express web server~~
 * MySQL
-* ~~Sequelize ORM~~
-* ~~Handlebars~~
+* Sequelize ORM
+* Handlebars
 * Authentication
 * GET and POST routes
 * Heroku deployment

@@ -1,6 +1,6 @@
 # eDreamTeam - Group Project 2 - codeFriend
 ## Project Overview
-codeFriend provides a refined collection of inspirational programmer quotes (thanks GoodReads!), coding memes (thanks Google/the internet!), and techinical challenges (thanks Project Euler!) to keep you going every day of your developer journey. Register an account to keep track of your progress and see only new-to-you content.  
+codeFriend provides a refined collection of inspirational programmer quotes (thanks GoodReads!), coding memes (thanks Google/the internet!), and techinical challenges (thanks Project Euler!) to keep you going every day of your developer journey. Register an account to keep track of your progress and see only new-to-you content. Detailed project notes can be found [here](project-notes.md).  
 
 ## Project Requirements
 * Node.js
