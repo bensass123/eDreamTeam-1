@@ -2,7 +2,7 @@
 ## Project Notes
 codeFriend will have 3 initial features; **inspirational quotes**, **humorous memes**, **coding challenges**. User will have the option to select a category and infinite scroll through all available content. User will be able to create an account, update a profile, and not be served duplicate content (unless approved by user setting).
 
-### App Architecture
+### App Structure
 Initial structure created using `express-generator` modified to better fit the MVC pattern, incorporate `mocha` tests, and `sequelize-cli` for ORM and migration support. 
 
 #### Folder Overview
@@ -25,7 +25,7 @@ Initial structure created using `express-generator` modified to better fit the M
 ### Saturday 3/18
     Brainstorm ideas, initial wireframe and notes, next steps: research & setup
 ### Tuesday 3/21
-    Finalize architecture, feature set, and prototype; pseudocode full app, determine feature coding responsibilities
+    Finalize structure, feature set, and prototype; pseudocode full app, determine feature coding responsibilities
 ### Thursday 3/23
     Feature coding, initial concerns/roadblocks
 ### Saturday 3/25
