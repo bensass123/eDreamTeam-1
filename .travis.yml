@@ -3,4 +3,8 @@ language: node_js
 node_js:
   - stable
 
-services: mysql
+services:
+  - mysql
+
+env:
+  - DB=test
