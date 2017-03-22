@@ -8,6 +8,7 @@ var app = require('../app');
 var debug = require('debug')('app:server');
 var http = require('http');
 var db = require('../models');
+var stormpath = require('express-stormpath');
 
 /**
  * Get port from environment and store in Express.
@@ -26,15 +27,28 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-// Starting our express app
-// sync models { force: true }
-db.sequelize.sync().then(function() {
+// Starting our express app with stormpath if production
+if (process.env.NODE_ENV === 'production') {
+  app.use(stormpath.init(app, { website: true }));
+  db.sequelize.sync().then(function() {
+    app.on('stormpath.ready', function() {
+      server.listen(port, function() {
+        console.log('App listening on PORT ' + port);
+      });
+      server.on('error', onError);
+      server.on('listening', onListening);
+    });
+  });
+// starting without stormpath if not in production
+} else {
+  db.sequelize.sync().then(function() {
     server.listen(port, function() {
       console.log('App listening on PORT ' + port);
     });
     server.on('error', onError);
     server.on('listening', onListening);
-});
+  });
+}
 
 /**
  * Normalize a port into a number, string, or false.
