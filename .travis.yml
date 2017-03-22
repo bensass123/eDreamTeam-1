@@ -12,5 +12,4 @@ env:
 before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS testDB;'
   - mysql -e 'USE testDB';
-  - mysql -e 'CREATE TABLE TEST (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, title VARCHAR(250));'
-  
+  - mysql -e 'CREATE TABLE TEST (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, title VARCHAR(250))';
