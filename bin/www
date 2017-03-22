@@ -27,8 +27,8 @@ var server = http.createServer(app);
  */
 
 // Starting our express app
-// sync models
-db.sequelize.sync({ force: true }).then(function() {
+// sync models { force: true }
+db.sequelize.sync().then(function() {
     server.listen(port, function() {
       console.log('App listening on PORT ' + port);
     });
