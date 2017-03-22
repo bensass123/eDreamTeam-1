@@ -8,3 +8,6 @@ services:
 
 env:
   - NODE_ENV=test
+
+before_install:
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS testDB;'
