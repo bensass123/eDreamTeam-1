@@ -1,4 +1,8 @@
 'use strict';
+
+//During the test the env variable is set to test
+//process.env.NODE_ENV = 'test';
+
 // dependencies
 var assert = require('assert');
 var request = require('supertest');
@@ -15,6 +19,7 @@ describe('Array', function() {
   });
 });
 
+// API GET
 describe('GET /test', function() {
   it('should should return a json object array', function(done) {
     request(app)
@@ -27,5 +32,22 @@ describe('GET /test', function() {
         res.body.should.be.an('array');
         done();
       });
+  });
+});
+
+// API POST
+describe('POST /test', function() {
+  it('should should return a json object array', function(done) {
+    request(app)
+      .post('/test')
+      .send({'title':'newTest'})
+      .expect('Content-Type', 'text/html; charset=utf-8')
+      .expect(200);
+      // .end(function(err, res) {
+      //   if (err) done(err);
+      //   res.body.should.have.property('author');
+      //   done();
+      // });
+      done();
   });
 });
