@@ -17,19 +17,8 @@ var stormpath = require('express-stormpath');
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
-/**
- * Create HTTP server.
- */
-
-var server = http.createServer(app);
-
-/**
- * Listen on provided port, on all network interfaces.
- */
-
-// Starting our express app with stormpath if production
 if (process.env.NODE_ENV === 'production') {
-  server.use(stormpath.init(server, {
+  app.use(stormpath.init(app, {
     application: {
       href: process.env.STORMPATH_APPLICATION_HREF
     },
@@ -40,26 +29,29 @@ if (process.env.NODE_ENV === 'production') {
       }
     }
   }));
-  server.on('stormpath.ready', function() {
+  app.on('stormpath.ready', function() {
     console.log('Stormpath ready');
   });
-  db.sequelize.sync().then(function() {
-    server.listen(port, function() {
-      console.log('App listening on PORT ' + port);
-    });
-    server.on('error', onError);
-    server.on('listening', onListening);
-  });
-// starting without stormpath if not in production
-} else {
-  db.sequelize.sync().then(function() {
-    server.listen(port, function() {
-      console.log('App listening on PORT ' + port);
-    });
-    server.on('error', onError);
-    server.on('listening', onListening);
-  });
 }
+
+/**
+ * Create HTTP server.
+ */
+
+var server = http.createServer(app);
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+db.sequelize.sync().then(function() {
+  server.listen(port, function() {
+    console.log('App listening on PORT ' + port);
+  });
+  server.on('error', onError);
+  server.on('listening', onListening);
+});
+
 
 /**
  * Normalize a port into a number, string, or false.
