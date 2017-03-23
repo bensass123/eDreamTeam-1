@@ -29,7 +29,7 @@ var server = http.createServer(app);
 
 // Starting our express app with stormpath if production
 if (process.env.NODE_ENV === 'production') {
-  app.use(stormpath.init(app, {
+  server.use(stormpath.init(server, {
     application: {
       href: process.env.STORMPATH_APPLICATION_HREF
     },
@@ -40,7 +40,7 @@ if (process.env.NODE_ENV === 'production') {
       }
     }
   }));
-  app.on('stormpath.ready', function() {
+  server.on('stormpath.ready', function() {
     console.log('Stormpath ready');
   });
   db.sequelize.sync().then(function() {
