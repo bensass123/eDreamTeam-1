@@ -20,17 +20,6 @@ app.set('port', port);
 var server;
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(stormpath.init(app, {
-    application: {
-      href: process.env.STORMPATH_APPLICATION_HREF
-    },
-    website: true,
-    web: {
-      login: {
-        nextUri: '/'
-      }
-    }
-  }));
   app.on('stormpath.ready', function() {
     console.log('Stormpath ready');
     server = http.createServer(app);

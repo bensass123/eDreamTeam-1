@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var stormpath = require('express-stormpath');
 
 var app = express();
 
@@ -21,6 +22,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // add controllers
 app.use(require('./controllers'));
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(stormpath.init(app, {
+    application: {
+      href: process.env.STORMPATH_APPLICATION_HREF
+    },
+    website: true,
+    web: {
+      login: {
+        nextUri: '/'
+      }
+    }
+  }));
+}
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
