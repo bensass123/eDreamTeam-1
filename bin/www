@@ -17,6 +17,8 @@ var stormpath = require('express-stormpath');
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
+var server;
+
 if (process.env.NODE_ENV === 'production') {
   app.use(stormpath.init(app, {
     application: {
@@ -31,7 +33,7 @@ if (process.env.NODE_ENV === 'production') {
   }));
   app.on('stormpath.ready', function() {
     console.log('Stormpath ready');
-    var server = http.createServer(app);
+    server = http.createServer(app);
     db.sequelize.sync().then(function() {
       server.listen(port, function() {
         console.log('App listening on PORT ' + port);
@@ -45,7 +47,7 @@ if (process.env.NODE_ENV === 'production') {
    * Create HTTP server.
    */
 
-  var server = http.createServer(app);
+  server = http.createServer(app);
 
   /**
    * Listen on provided port, on all network interfaces.
