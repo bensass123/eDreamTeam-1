@@ -33,7 +33,7 @@ if (process.env.NODE_ENV === 'production') {
   db.sequelize.sync().then(function() {
     app.on('stormpath.ready', function() {
       server.listen(port, function() {
-        console.log('App listening on PORT ' + port);
+        console.log('App + Stormpath listening on PORT ' + port);
       });
       server.on('error', onError);
       server.on('listening', onListening);
