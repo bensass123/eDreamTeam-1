@@ -1,14 +1,7 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var Test = sequelize.define('Test', {
-    title: DataTypes.STRING,
-    // complete: {
-    //   type: DataTypes.BOOLEAN,
-    //   defaultValue: false
-    // },
-    // UserId: DataTypes.INTEGER
-  }, {
-    timestamps: false
+    title: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {
