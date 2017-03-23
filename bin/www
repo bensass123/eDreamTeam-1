@@ -40,14 +40,15 @@ if (process.env.NODE_ENV === 'production') {
       }
     }
   }));
+  app.on('stormpath.ready', function() {
+    console.log('Stormpath ready');
+  });
   db.sequelize.sync().then(function() {
-    app.on('stormpath.ready', function() {
-      server.listen(port, function() {
-        console.log('App + Stormpath listening on PORT ' + port);
-      });
-      server.on('error', onError);
-      server.on('listening', onListening);
+    server.listen(port, function() {
+      console.log('App listening on PORT ' + port);
     });
+    server.on('error', onError);
+    server.on('listening', onListening);
   });
 // starting without stormpath if not in production
 } else {
