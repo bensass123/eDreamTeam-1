@@ -28,7 +28,7 @@ var server = http.createServer(app);
  */
 
 // Starting our express app with stormpath if production
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV.trim() === 'production') {
   app.use(stormpath.init(app, { website: true }));
   db.sequelize.sync().then(function() {
     app.on('stormpath.ready', function() {
