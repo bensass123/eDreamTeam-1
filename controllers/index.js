@@ -12,4 +12,6 @@ router.get('/', function(req, res, next) {
 router.use('/users', require('./users'));
 router.use('/test', require('./test'));
 
+router.use('/api', require('./api'));
+
 module.exports = router;
