@@ -13,5 +13,8 @@ router.use('/quotes', require('./quotes'));
 router.use('/easies', require('./easies'));
 router.use('/reddits', require('./reddits'));
 router.use('/funnies', require('./funnies'));
+router.use('/hards', require('./hards'));
+router.use('/intermediate', require('./intermediate'));
+router.use('/indicies', require('./indicies'));
 
 module.exports = router;
