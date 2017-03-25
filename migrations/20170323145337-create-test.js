@@ -17,14 +17,6 @@ module.exports = {
       },
       title: {
         type: Sequelize.STRING
-      },
-      createdAt: {
-        allowNull: true,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: true,
-        type: Sequelize.DATE
       }
     }).then(function (done) {
       queryInterface.bulkInsert('Tests', testData).then(done);
