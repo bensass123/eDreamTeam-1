@@ -1,31 +1,48 @@
-{{!--<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>--}}
+<!DOCTYPE html>
+<html>
 
-<header>
+<head>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./img/favicon/favicon.ico">
+    <!-- Reset CSS -->
+    <link rel="stylesheet" href="./css/reset.css" type="text/css">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
+    <!-- Roboto Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <!-- YouTube API-->
+    <script type="text/javascript" src="http://www.youtube.com/player_api"></script>
+    <title>&lt;codeFriend!&gt;</title>
+</head>
+
+<body>
+    <header>
         <img id="logo" src="./img/logo/codefriend-logo-white-bg.png">
     </header>
     <div class="content" status="hidden">
     </div>
     <div class="tileContainer" status="visible">
         <div class="inspireMe box">
-            {{!--<div class="video">
+            <div class="video">
                 <iframe id="player" width="1920" height="1080" src="http://www.youtube.com/embed/Ch2TItXGXMw?rel=0&wmode=Opaque&enablejsapi=1;showinfo=0;controls=0" frameborder="0" allowfullscreen></iframe>
                 <div class="darken"></div>
-            </div>--}}
+            </div>
             <p class="tileText">INSPIRE ME</p>
         </div>
         <div class="humorMe box">
-            {{!--<div class="video">
+            <div class="video">
                 <iframe id="player2" width="1920" height="1080" src="http://www.youtube.com/embed/aCb8SXwtFxo?rel=0&wmode=Opaque&enablejsapi=1;showinfo=0;controls=0" frameborder="0" allowfullscreen></iframe>
                 <div class="darken"></div>
-            </div>--}}
+            </div>
             <p class="tileText">HUMOR ME</p>
         </div>
         <div class="challengeMe box">
-            {{!--<div class="video">
+            <div class="video">
                 <iframe id="player3" width="1920" height="1080" src="http://www.youtube.com/embed/n8n685ZtKVE?rel=0&wmode=Opaque&enablejsapi=1;showinfo=0;controls=0" frameborder="0" allowfullscreen></iframe>
                 <div class="darken"></div>
-            </div>--}}
+            </div>
             <p class="tileText">CHALLENGE ME</p>
         </div>
     </div>
@@ -90,3 +107,6 @@
     }
     onYouTubeIframeAPIReady();
     </script>
+</body>
+
+</html>
