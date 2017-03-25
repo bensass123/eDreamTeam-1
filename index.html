@@ -45,27 +45,26 @@
         </div>
     </div>
     <script type="text/javascript">
-
     // $(document).ready(function(){
-    // 	$(".ytp-button").slice(0,2).css("display", "none");
+    //  $(".ytp-button").slice(0,2).css("display", "none");
     // })
 
     // setTimeout(function () {
-    // 	$(".ytp-button").css("display", "none")
+    //  $(".ytp-button").css("display", "none")
     // }, 5000);
 
     let tileName = "";
 
     $(".box p").on("mousedown", function(event) {
-    	tileName = $(this).text();
+        tileName = $(this).text();
         $(this).text("You clicked me!");
     });
 
     $(".box").on("mouseleave", function(event) {
-    	if (tileName !== "") {
-    		$(this).children("p").text(tileName);
-    		tileName = "";
-    	}
+        if (tileName !== "") {
+            $(this).children("p").text(tileName);
+            tileName = "";
+        }
     });
 
     // var player;
