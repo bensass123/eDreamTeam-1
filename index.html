@@ -19,56 +19,63 @@
 
 <body>
     <header>
-        <img id="logo" src="./img/logo/codefriend-logo.png">
+        <img id="logo" src="./img/logo/codefriend-logo-white-bg.png">
     </header>
-    <div class="tileContainer">
+    <div class="content" status="hidden">
+    </div>
+    <div class="tileContainer" status="visible">
         <div class="inspireMe box">
             <div class="video">
-                <iframe id="player" width="2560" height="1440" src="http://www.youtube.com/embed/Ch2TItXGXMw?rel=0&wmode=Opaque&enablejsapi=1;showinfo=0;controls=0" frameborder="0" allowfullscreen></iframe>
+                <iframe id="player" width="1920" height="1080" src="http://www.youtube.com/embed/Ch2TItXGXMw?rel=0&wmode=Opaque&enablejsapi=1;showinfo=0;controls=0" frameborder="0" allowfullscreen></iframe>
                 <div class="darken"></div>
             </div>
             <p class="tileText">INSPIRE ME</p>
         </div>
         <div class="humorMe box">
             <div class="video">
-                <iframe id="player2" width="2560" height="1440" src="http://www.youtube.com/embed/aCb8SXwtFxo?rel=0&wmode=Opaque&enablejsapi=1;showinfo=0;controls=0" frameborder="0" allowfullscreen></iframe>
+                <iframe id="player2" width="1920" height="1080" src="http://www.youtube.com/embed/aCb8SXwtFxo?rel=0&wmode=Opaque&enablejsapi=1;showinfo=0;controls=0" frameborder="0" allowfullscreen></iframe>
                 <div class="darken"></div>
             </div>
             <p class="tileText">HUMOR ME</p>
         </div>
         <div class="challengeMe box">
             <div class="video">
-                <iframe id="player3" width="2560" height="1440" src="http://www.youtube.com/embed/n8n685ZtKVE?rel=0&wmode=Opaque&enablejsapi=1;showinfo=0;controls=0" frameborder="0" allowfullscreen></iframe>
+                <iframe id="player3" width="1920" height="1080" src="http://www.youtube.com/embed/n8n685ZtKVE?rel=0&wmode=Opaque&enablejsapi=1;showinfo=0;controls=0" frameborder="0" allowfullscreen></iframe>
                 <div class="darken"></div>
             </div>
             <p class="tileText">CHALLENGE ME</p>
         </div>
     </div>
     <script type="text/javascript">
-    // $(document).ready(function(){
-    //  $(".ytp-button").slice(0,2).css("display", "none");
-    // })
-
-    // setTimeout(function () {
-    //  $(".ytp-button").css("display", "none")
-    // }, 5000);
-
-    let tileName = "";
-
-    $(".box p").on("mousedown", function(event) {
-        tileName = $(this).text();
-        $(this).text("You clicked me!");
+    $(".box p").on("click", function(event) {
+        $(".tileContainer").attr("status", "hidden").css("visibility", "hidden")
+        $(".content").attr("status", "visible").css({"visibility": "visible", "width": "100vw", "height": "100vh"})
+        $("body").css("overflow-y", "hidden")
+        $("header").css("background-color", "black")
+        $("img").attr("src", "./img/logo/codefriend-logo-black-bg.png")
     });
 
-    $(".box").on("mouseleave", function(event) {
-        if (tileName !== "") {
-            $(this).children("p").text(tileName);
-            tileName = "";
-        }
+    $(".content").on("click", function(event) {
+        $(".tileContainer").attr("status", "visible").css("visibility", "visible")
+        $(".content").attr("status", "visible").css({"visibility": "hidden", "width": "0px", "height": "0px"})
+        $(".body").css("overflow-y", "scroll")
+        $("header").css("background-color", "white")
+        $("img").attr("src", "./img/logo/codefriend-logo-white-bg.png")
     });
+
+    // let tileName = "";
+    // $(".box p").on("mousedown", function(event) {
+    //     tileName = $(this).text();
+    //     $(this).text("You clicked me!");
+    // });
+    // $(".box").on("mouseleave", function(event) {
+    //     if (tileName !== "") {
+    //         $(this).children("p").text(tileName);
+    //         tileName = "";
+    //     }
+    // });
 
     // var player;
-
     var vidID = function(id) {
         return document.getElementById(id);
     }
@@ -85,7 +92,6 @@
             var currentIframeID = videos[i].id; // we get the iframe ID
             players[currentIframeID] = new YT.Player(currentIframeID); // we stock in the array the instance
             // note, the key of each array element will be the iframe ID
-
             videos[i].onmouseover = function(e) { // assigning a callback for this event
                 var currentHoveredElement = e.target;
                 if (playingID) // if a video is currently played
@@ -96,7 +102,6 @@
                 players[currentHoveredElement.id].mute();
                 playingID = currentHoveredElement.id;
             };
-
             videos[i].onmouseout = function(e) { // assigning a callback for this event
                 var currentHoveredElement = e.target;
                 players[playingID].pauseVideo();
