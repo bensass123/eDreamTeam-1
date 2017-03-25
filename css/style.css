@@ -1,61 +1,190 @@
 /*BORDER BOX*/
-*, *:before, *:after {
-  box-sizing: border-box;
+
+*,*:before,*:after {
+    box-sizing: border-box;
 }
 
 body {
-	/* BACKGROUND COLORS/GRADIENTS */
-	background-color: black;
-    background: -webkit-linear-gradient(-90deg, blue, cyan); /* Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(-90deg, blue, cyan); /* Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(-90deg, blue, cyan); /* Firefox 3.6 to 15 */
-    background: linear-gradient(-90deg, blue, cyan); /* Standard syntax */
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #000;
 }
 
-img {
-	max-width: 100%;  /*For scalable images*/ 
+header {
+	background-color: #FFF;
+	position: fixed;
+	z-index: 10;
+    text-align: center;
+    margin: auto;
+    width: 100%;
 }
 
-.wrapper {
-	width: 1080px;
-	height: 1080px;
-	margin: auto;
-	background-color: white;
-	/*background-color: rgba(255, 255, 255, 0.5);*/
-}
-
-header{
-	text-align: center;
-	margin: auto;
-}
+/*header:after {
+	clear: both;
+}*/
 
 #logo {
-	max-width: 50%; 
-	padding-top: 12px;
-	padding-bottom: 15px;
-
+    max-width: 50%;
+    padding-top: 12px;
+    padding-bottom: 15px;
 }
 
-.tileContainer{
-
-}
-
-.tile {
+.box {
 	position: relative;
-	width: 1080px;
-	height: 325px;
-	border: solid 1px;
-	cursor: pointer;
+    /*padding: 1em;*/
+    background-color: #000;
 }
 
-.tileText{
-	position: absolute;
+.inspireMe {
+	position: relative;
+    background-color: black;
+    /*background-image: url("../img/tiles/inspireMe1.jpeg");*/
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.humorMe {
+	position: relative;
+    background-color: black;
+    /*background-image: url("../img/tiles/humorMe1.jpeg");*/
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.challengeMe {
+	position: relative;
+    background-color: black;
+    /*background-image: url("../img/tiles/challengeMe.jpeg");*/
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.tileContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100vh;
+}
+
+.tileText {
+    position: absolute; /* .box is parent */
+    text-align: center;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Basing off of parent object */
+    transform: translate(-50%, -50%);
     color: white;
     font-weight: bold;
-    font-size: 64px;
+    font-size: 48px;
     text-shadow: 2px 2px 4px #000000;
     font-family: 'Roboto', sans-serif;
+    z-index: 3;
+}
+
+.video {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	min-width: 100%;
+	min-height: 100%;
+}
+
+.video:after{
+	content: '';
+	display: block;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.2);
+	background-image: linear-gradient(45deg, black 15%, transparent 30%);
+	/*background-image: radial-gradient(black 15%, transparent 30%);*/
+	background-size: 3px 3px;
+	pointer-events: none;
+}
+
+/*.darken {
+	position: absolute;
+	z-index: 2;
+	background: rgba(0,0,0,0.4);
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	pointer-events: none;
+}*/
+
+/*.ytp {
+	display: none !important;
+}
+
+.ytp-watermark {
+	display: none;
+}*/
+
+/*.unstarted-mode:not(.playing-mode) .ytp-cued-thumbnail-overlay:not([aria-hidden=true]), .ended-mode .ytp-cued-thumbnail-overlay:not([aria-hidden=true]),
+.ytp-thumbnail-overlay, .ytp-button:not([aria-disabled=true]):not([disabled]):not([aria-hidden=true]),.ytp-small-mode .ytp-large-play-button,
+.ytp-large-play-button, .ytp-button, .ytp-large-play-button-bg,
+.ytp-large-play-button.ytp-touch-device .ytp-large-play-button-bg, .ytp-cued-thumbnail-overlay:hover .ytp-large-play-button-bg {
+    display: none !important;
+}*/
+
+@media only screen and (max-width: 820px) {
+.video {
+	display: none;
+}
+
+.inspireMe {
+	position: relative;
+    background-color: black;
+    background-image: url("../img/tiles/inspireMe1.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.humorMe {
+	position: relative;
+    background-color: black;
+    background-image: url("../img/tiles/humorMe1.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.challengeMe {
+	position: relative;
+    background-color: black;
+    background-image: url("../img/tiles/challengeMe.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.tileContainer {
+    display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows: 300px 300px 300px;
+}
+
+.tileText {
+    position: absolute; /* .box is parent */
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    font-size: 48px;
+    text-shadow: 2px 2px 4px #000000;
+    font-family: 'Roboto', sans-serif;
+    z-index: 3;
+}
 }
