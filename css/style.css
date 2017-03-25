@@ -1,19 +1,22 @@
 /*BORDER BOX*/
 
-*,*:before,*:after {
+*,
+*:before,
+*:after {
     box-sizing: border-box;
 }
 
 body {
-    margin: 0;
+    position: relative;
+    /*margin: 0 auto;*/
     font-family: 'Roboto', sans-serif;
     background-color: #000;
 }
 
 header {
-	background-color: #FFF;
-	position: fixed;
-	z-index: 10;
+    background-color: #FFF;
+    position: fixed;
+    z-index: 10;
     text-align: center;
     margin: auto;
     width: 100%;
@@ -30,13 +33,12 @@ header {
 }
 
 .box {
-	position: relative;
-    /*padding: 1em;*/
+    position: relative;
     background-color: #000;
 }
 
 .inspireMe {
-	position: relative;
+    position: relative;
     background-color: black;
     /*background-image: url("../img/tiles/inspireMe1.jpeg");*/
     background-position: center;
@@ -46,7 +48,7 @@ header {
 }
 
 .humorMe {
-	position: relative;
+    position: relative;
     background-color: black;
     /*background-image: url("../img/tiles/humorMe1.jpeg");*/
     background-position: center;
@@ -56,7 +58,7 @@ header {
 }
 
 .challengeMe {
-	position: relative;
+    position: relative;
     background-color: black;
     /*background-image: url("../img/tiles/challengeMe.jpeg");*/
     background-repeat: no-repeat;
@@ -66,6 +68,7 @@ header {
 
 .tileContainer {
     display: grid;
+    width: 100%;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 100vh;
 }
@@ -85,28 +88,29 @@ header {
 }
 
 .video {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	min-width: 100%;
-	min-height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
 }
 
-.video:after{
-	content: '';
-	display: block;
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	background: rgba(0, 0, 0, 0.2);
-	background-image: linear-gradient(45deg, black 15%, transparent 30%);
-	/*background-image: radial-gradient(black 15%, transparent 30%);*/
-	background-size: 3px 3px;
-	pointer-events: none;
+.video:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(45deg, black 15%, transparent 30%);
+    /*background-image: radial-gradient(black 15%, transparent 30%);*/
+    background-size: 3px 3px;
+    pointer-events: none;
 }
+
 
 /*.darken {
 	position: absolute;
@@ -119,6 +123,7 @@ header {
 	pointer-events: none;
 }*/
 
+
 /*.ytp {
 	display: none !important;
 }
@@ -127,6 +132,7 @@ header {
 	display: none;
 }*/
 
+
 /*.unstarted-mode:not(.playing-mode) .ytp-cued-thumbnail-overlay:not([aria-hidden=true]), .ended-mode .ytp-cued-thumbnail-overlay:not([aria-hidden=true]),
 .ytp-thumbnail-overlay, .ytp-button:not([aria-disabled=true]):not([disabled]):not([aria-hidden=true]),.ytp-small-mode .ytp-large-play-button,
 .ytp-large-play-button, .ytp-button, .ytp-large-play-button-bg,
@@ -134,57 +140,28 @@ header {
     display: none !important;
 }*/
 
-@media only screen and (max-width: 820px) {
-.video {
-	display: none;
-}
-
-.inspireMe {
-	position: relative;
-    background-color: black;
-    background-image: url("../img/tiles/inspireMe1.jpeg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow: hidden;
-}
-
-.humorMe {
-	position: relative;
-    background-color: black;
-    background-image: url("../img/tiles/humorMe1.jpeg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow: hidden;
-}
-
-.challengeMe {
-	position: relative;
-    background-color: black;
-    background-image: url("../img/tiles/challengeMe.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow: hidden;
-}
-
-.tileContainer {
-    display: grid;
-    grid-template-columns: 100vw;
-    grid-template-rows: 300px 300px 300px;
-}
-
-.tileText {
-    position: absolute; /* .box is parent */
-    text-align: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-weight: bold;
-    font-size: 48px;
-    text-shadow: 2px 2px 4px #000000;
-    font-family: 'Roboto', sans-serif;
-    z-index: 3;
-}
+@media only screen and (max-width: 1080px) {
+    .video {
+        display: none;
+    }
+    .inspireMe {
+        background-image: url("../img/tiles/inspireMe1.jpeg");
+    }
+    .humorMe {
+        background-image: url("../img/tiles/humorMe1.jpeg");
+    }
+    .challengeMe {
+        background-image: url("../img/tiles/challengeMe.jpeg");
+    }
+    .tileContainer {
+        display: grid;
+        height: 100vh;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 100vh;
+    }
+    .box {
+        background-color: #FFF;
+        text-align: center;
+        width: 100vw;
+    }
 }
