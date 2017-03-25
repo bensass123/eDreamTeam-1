@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 
 /* include additional routes */
 router.use('/quotes', require('./quotes'));
-router.use('/eulers', require('./eulers'));
+router.use('/easies', require('./easies'));
 router.use('/reddits', require('./reddits'));
 router.use('/funnies', require('./funnies'));
 
