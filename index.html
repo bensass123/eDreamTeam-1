@@ -3,42 +3,109 @@
 
 <head>
     <!-- Favicon -->
-    <link rel="shortcut icon" href="./img/favicon/favicon.ico" />
+    <link rel="shortcut icon" href="./img/favicon/favicon.ico">
     <!-- Reset CSS -->
-    <link rel="stylesheet" href="./css/reset.css" type="text/css" />
+    <link rel="stylesheet" href="./css/reset.css" type="text/css">
     <!-- Main Style CSS -->
-    <link rel="stylesheet" href="./css/style.css" type="text/css" media="screen, projection" />
-    <!-- Responsive / Media Query CSS -->
-    <!-- <link rel="stylesheet" href="./css/responsive.css" type="text/css" media="screen, projection" /> -->
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
     <!-- Roboto Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <title>&lt;CodeFriend&gt;</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <!-- YouTube API-->
+    <script type="text/javascript" src="http://www.youtube.com/player_api"></script>
+    <title>&lt;codeFriend!&gt;</title>
 </head>
 
 <body>
-    <div class="wrapper">
-        <header><img src="./img/logo/codefriend-logo.png" id="logo"></header>
-        <div class="tileContainer">
-            <div class="tile" name="inspireMe">
-                <img src="./img/tiles/inspireMe1.jpeg">
-                <p class="tileText" id="inspireText">INSPIRE ME</p>
+    <header>
+        <img id="logo" src="./img/logo/codefriend-logo.png">
+    </header>
+    <div class="tileContainer">
+        <div class="inspireMe box">
+            <div class="video">
+                <iframe id="player" width="2560" height="1440" src="http://www.youtube.com/embed/Ch2TItXGXMw?rel=0&wmode=Opaque&enablejsapi=1;showinfo=0;controls=0" frameborder="0" allowfullscreen></iframe>
+                <div class="darken"></div>
             </div>
-            <div class="tile" name="humorMe">
-                <img src="./img/tiles/humorMe1.jpeg">
-                <p class="tileText" id="humorText">HUMOR ME</p>
-            </div>
-            <div class="tile" name="challengeMe"><img src="./img/tiles/challengeMe.jpeg">
-                <p class="tileText" id="challengeText">CHALLENGE ME</p>
-            </div>
+            <p class="tileText">INSPIRE ME</p>
         </div>
-        <footer></footer>
+        <div class="humorMe box">
+            <div class="video">
+                <iframe id="player2" width="2560" height="1440" src="http://www.youtube.com/embed/aCb8SXwtFxo?rel=0&wmode=Opaque&enablejsapi=1;showinfo=0;controls=0" frameborder="0" allowfullscreen></iframe>
+                <div class="darken"></div>
+            </div>
+            <p class="tileText">HUMOR ME</p>
+        </div>
+        <div class="challengeMe box">
+            <div class="video">
+                <iframe id="player3" width="2560" height="1440" src="http://www.youtube.com/embed/n8n685ZtKVE?rel=0&wmode=Opaque&enablejsapi=1;showinfo=0;controls=0" frameborder="0" allowfullscreen></iframe>
+                <div class="darken"></div>
+            </div>
+            <p class="tileText">CHALLENGE ME</p>
+        </div>
     </div>
     <script type="text/javascript">
-    $(".tile").on("click", function(event) {
-        $(this).children(".tileText").text("You clicked me!");
+
+    // $(document).ready(function(){
+    // 	$(".ytp-button").slice(0,2).css("display", "none");
+    // })
+
+    // setTimeout(function () {
+    // 	$(".ytp-button").css("display", "none")
+    // }, 5000);
+
+    let tileName = "";
+
+    $(".box p").on("mousedown", function(event) {
+    	tileName = $(this).text();
+        $(this).text("You clicked me!");
     });
+
+    $(".box").on("mouseleave", function(event) {
+    	if (tileName !== "") {
+    		$(this).children("p").text(tileName);
+    		tileName = "";
+    	}
+    });
+
+    // var player;
+
+    var vidID = function(id) {
+        return document.getElementById(id);
+    }
+    var tagnameIF = function(tagname) {
+        return document.getElementsByTagName(tagname);
+    }
+
+    function onYouTubeIframeAPIReady() {
+        var videos = tagnameIF('iframe'), // the iframes elements
+            players = [], // an array where we stock each videos youtube instances class
+            playingID = null; // stock the current playing video
+        for (var i = 0; i < videos.length; i++) // for each iframes
+        {
+            var currentIframeID = videos[i].id; // we get the iframe ID
+            players[currentIframeID] = new YT.Player(currentIframeID); // we stock in the array the instance
+            // note, the key of each array element will be the iframe ID
+
+            videos[i].onmouseover = function(e) { // assigning a callback for this event
+                var currentHoveredElement = e.target;
+                if (playingID) // if a video is currently played
+                {
+                    players[playingID].pauseVideo();
+                }
+                players[currentHoveredElement.id].playVideo();
+                players[currentHoveredElement.id].mute();
+                playingID = currentHoveredElement.id;
+            };
+
+            videos[i].onmouseout = function(e) { // assigning a callback for this event
+                var currentHoveredElement = e.target;
+                players[playingID].pauseVideo();
+                playingID = currentHoveredElement.id;
+            };
+        }
+    }
+    onYouTubeIframeAPIReady();
     </script>
 </body>
 
