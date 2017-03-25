@@ -30,12 +30,14 @@ if (process.env.NODE_ENV === 'production') {
     },
     website: true,
     web: {
+      me: {
+        expand: {
+          customData: true
+        }
+      },
       login: {
         nextUri: '/'
       }
-    },
-    expand: {
-      customData: true,
     }
   }));
 }
