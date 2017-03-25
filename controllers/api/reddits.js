@@ -7,6 +7,8 @@ var path = require('path');
 
 // Routes
 // =============================================================
+
+  
 router.get('/:username/:difficulty', function(req, res, next) {
     res.send('api reddits GET success w username');
     // this will select from database the next reddit challenge (based on usernames index,
