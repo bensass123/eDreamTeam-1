@@ -33,6 +33,9 @@ if (process.env.NODE_ENV === 'production') {
       login: {
         nextUri: '/'
       }
+    },
+    expand: {
+      customData: true,
     }
   }));
 }
