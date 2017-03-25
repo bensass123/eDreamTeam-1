@@ -8,14 +8,16 @@ var models = require(__dirname + '/../../models/index');
 
 router.get('/', function(req, res, next) {
   // res.send('homebase');
-  models.Easy.findOne({
-      where: {
-        id: 1
-      }
-  }).then(function(results) {
+  models.Easy.findAll().then(function(results) {
         // results are available to us inside the .then
       return res.json(results);
    });
 });
 
 module.exports = router;
+
+
+// {
+//       where: {
+//         id: 1
+//       }}
