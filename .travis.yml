@@ -10,6 +10,6 @@ env:
   - NODE_ENV=test
 
 before_install:
-  - mysql -e 'CREATE DATABASE IF NOT EXISTS testDB; USE testDB;'
-  - mysql -e 'CREATE TABLE IF NOT EXISTS Tests (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, title VARCHAR(250), createdAt DATETIME, updatedAt DATETIME)';
-  - mysql -e 'CREATE TABLE IF NOT EXISTS easies (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, selfText TEXT, selfText_html TEXT, url VARCHAR(255), title VARCHAR(255), difficulty VARCHAR(255), createdAt DATETIME, updatedAt DATETIME);'
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS testDB;'
+  - mysql -e 'USE testDB;CREATE TABLE IF NOT EXISTS Tests (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, title VARCHAR(250), createdAt DATETIME, updatedAt DATETIME)';
+  - mysql -e 'USE testDB;CREATE TABLE IF NOT EXISTS easies (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, selfText TEXT, selfText_html TEXT, url VARCHAR(255), title VARCHAR(255), difficulty VARCHAR(255), createdAt DATETIME, updatedAt DATETIME);'
