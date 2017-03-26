@@ -1,11 +1,13 @@
-*, *:before, *:after {
+*,
+*:before,
+*:after {
     box-sizing: border-box;
 }
 
 body {
     position: relative;
     font-family: 'Roboto', sans-serif;
-    background-color: #000;
+    background-color: #FFF;
     overflow-x: hidden;
 }
 
@@ -26,7 +28,7 @@ header {
 
 .box {
     position: relative;
-    background-color: #000;
+    background-color: #FFF;
 }
 
 .inspireMe {
@@ -41,7 +43,6 @@ header {
 .humorMe {
     position: relative;
     background-color: black;
-
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -64,9 +65,11 @@ header {
 }
 
 .content {
+    position: relative;
     width: 0px;
     height: 0px;
     background-color: black;
+    visibility: hidden;
 }
 
 .tileText {
@@ -107,9 +110,96 @@ header {
     pointer-events: none;
 }
 
+.close:hover,
+.leftNav:hover,
+.rightNav:hover {
+    -webkit-stroke-width: 5.3px;
+    -webkit-stroke-color: #FFFFFF;
+    -webkit-fill-color: #FFFFFF;
+    text-shadow: 1px 0px 10px white;
+    cursor: pointer;
+}
+
+.close {
+    position: absolute;
+    text-align: center;
+    top: 15%;
+    left: 95%;
+    width: 48px;
+    height: 48px;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: black;
+    font-size: 48px;
+    z-index: 20;
+}
+
+.leftNav {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: black;
+    font-size: 48px;
+    z-index: 20;
+    visibility: hidden;
+}
+
+.rightNav {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 95%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: black;
+    font-size: 48px;
+    z-index: 20;
+    visibility: hidden;
+}
+
+.imgTxt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 70%;
+    margin-top: 4%;
+    background-color: black;
+/*    box-shadow:0 0 40px 5px rgba(255, 255, 255, 0.5);*/
+    cursor: pointer;
+}
+
+
+.imgTxt > img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    height: auto;
+}
+
+.imgTxt > p {
+    position: relative;
+    line-height: 115%;
+    top: 30%;
+    font-size: 64px;
+    text-align: center;
+    color: white;
+    font-style: italic;
+}
+
 @media only screen and (max-width: 1080px) {
     .video {
         display: none;
+    }
+    .inspireMe > p {
+        position: absolute;
+        top: 60%;
     }
     .inspireMe {
         background-image: url("../img/tiles/inspireMe1.jpeg");
@@ -121,6 +211,7 @@ header {
         background-image: url("../img/tiles/challengeMe.jpeg");
     }
     .tileContainer {
+        position: relative;
         display: grid;
         width: 100vw;
         height: 100vh;
@@ -132,9 +223,12 @@ header {
         text-align: center;
         width: 100vw;
     }
+    .imgTxt > p {
+        font-size: 36px;
+    }
     header {
         background-color: #FFF;
-        position: relative;
+        position: absolute;
         height: 100px;
         z-index: 10;
         text-align: center;

@@ -22,25 +22,32 @@
         <img id="logo" src="./img/logo/codefriend-logo-white-bg.png">
     </header>
     <div class="content" status="hidden">
+        <div class="close">X</div>
+        <div class="leftNav">&lt;</div>
+        <div class="imgTxt">
+            <!-- <p>"This is a quote with some really fancy text!"</p> -->
+            <img src="./img/tiles/humorMe1.jpeg">
+        </div>
+        <div class="rightNav">&gt;</div>
     </div>
     <div class="tileContainer" status="visible">
         <div class="inspireMe box">
             <div class="video">
-                <iframe id="player" width="1920" height="1080" src="http://www.youtube.com/embed/Ch2TItXGXMw?rel=0&wmode=Opaque&enablejsapi=1;showinfo=0;controls=0" frameborder="0" allowfullscreen></iframe>
+                <iframe id="player1" width="2560" height="1440" src="http://www.youtube.com/embed/Ch2TItXGXMw?rel=0&wmode=Opaque&enablejsapi=1;showinfo=0;controls=0" frameborder="0" allowfullscreen></iframe>
                 <div class="darken"></div>
             </div>
             <p class="tileText">INSPIRE ME</p>
         </div>
         <div class="humorMe box">
             <div class="video">
-                <iframe id="player2" width="1920" height="1080" src="http://www.youtube.com/embed/aCb8SXwtFxo?rel=0&wmode=Opaque&enablejsapi=1;showinfo=0;controls=0" frameborder="0" allowfullscreen></iframe>
+                <iframe id="player2" width="2560" height="1440" src="http://www.youtube.com/embed/aCb8SXwtFxo?rel=0&wmode=Opaque&enablejsapi=1;showinfo=0;controls=0" frameborder="0" allowfullscreen></iframe>
                 <div class="darken"></div>
             </div>
             <p class="tileText">HUMOR ME</p>
         </div>
         <div class="challengeMe box">
             <div class="video">
-                <iframe id="player3" width="1920" height="1080" src="http://www.youtube.com/embed/n8n685ZtKVE?rel=0&wmode=Opaque&enablejsapi=1;showinfo=0;controls=0" frameborder="0" allowfullscreen></iframe>
+                <iframe id="player3" width="2560" height="1440" src="http://www.youtube.com/embed/n8n685ZtKVE?rel=0&wmode=Opaque&enablejsapi=1;showinfo=0;controls=0" frameborder="0" allowfullscreen></iframe>
                 <div class="darken"></div>
             </div>
             <p class="tileText">CHALLENGE ME</p>
@@ -49,18 +56,32 @@
     <script type="text/javascript">
     $(".box p").on("click", function(event) {
         $(".tileContainer").attr("status", "hidden").css("visibility", "hidden")
-        $(".content").attr("status", "visible").css({"visibility": "visible", "width": "100vw", "height": "100vh"})
-        $("body").css("overflow-y", "hidden")
+        $("header").children("img").attr("src", "./img/logo/codefriend-logo-black-bg.png")
         $("header").css("background-color", "black")
-        $("img").attr("src", "./img/logo/codefriend-logo-black-bg.png")
+        $(".content").attr("status", "visible").css({
+            "visibility": "visible",
+            "width": "100vw",
+            "height": "100vh"
+        })
+        if ($(this).text() === "HUMOR ME" || $(this).text() === "CHALLENGE ME") {
+            console.log("YAS");
+            $(".leftNav").css("visibility", "visible")
+            $(".rightNav").css("visibility", "visible")
+        }
+        $("body").css("overflow-y", "hidden")
     });
 
-    $(".content").on("click", function(event) {
+    $(".close").on("click", function(event) {
         $(".tileContainer").attr("status", "visible").css("visibility", "visible")
-        $(".content").attr("status", "visible").css({"visibility": "hidden", "width": "0px", "height": "0px"})
-        $(".body").css("overflow-y", "scroll")
+        $("header").children("img").attr("src", "./img/logo/codefriend-logo-white-bg.png")
         $("header").css("background-color", "white")
-        $("img").attr("src", "./img/logo/codefriend-logo-white-bg.png")
+        $(".content").attr("status", "visible").css({
+            "visibility": "hidden",
+            "width": "0px",
+            "height": "0px"
+        })
+        $(".leftNav").css("visibility", "hidden")
+        $(".rightNav").css("visibility", "hidden")
     });
 
     // let tileName = "";
